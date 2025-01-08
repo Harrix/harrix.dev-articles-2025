@@ -334,7 +334,6 @@ uv init test
 cd test
 uv sync
 uv add harrix-test-package
-"" | Out-File -FilePath src\test\main.py -Encoding utf8
 code C:\python-projects\test
 ```
 
