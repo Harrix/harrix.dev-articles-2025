@@ -52,7 +52,7 @@ attribution:
 
 ## Подготовка
 
-Установите и настройте uv, например, по статье [Установка и работа с uv (Python) в VSCode](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [🡥](https://harrix.dev/ru/articles/2023/uv-vscode-python/).
+Установите и настройте uv, например, по статье [Установка и работа с uv (Python) в VSCode](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [🡥](https://harrix.dev/ru/articles/2025/uv-vscode-python/).
 
 ## Создание проекта
 
@@ -61,12 +61,14 @@ attribution:
 Откройте в VSCode папку с проектами через `File` → `Open Folder...`, например, `C:\python-projects`, вызовете там терминал `Ctrl` + `` ` `` и создайте проект uv через команду (разумеется, у вас будет другое название проекта):
 
 ```shell
-uv init harrix-test-package
+uv init --package harrix-test-package
 ```
 
 Теперь в VScode откройте созданную папку `C:\python-projects\harrix-test-package`, откройте опять терминал через `Ctrl` + `` ` ``:
 
 ![Созданный пустой проект](img/project_01.png)
+
+Обратите внимание, что структура проекта более сложная, чем было бы при вызове команды `uv init harrix-test-package`, так как к пакету предъявляется больше требований.
 
 Создайте под свой проект виртуальное окружение. У меня виртуальное окружение будет находиться в папке `.venv`, находящейся в папке с проектом:
 
@@ -78,19 +80,19 @@ uv sync
 
 ## Установка пакетов
 
-Для тестирования внедрения сторонних пакетов в нашу библиотеку установим два популярных пакета `numpy` и `black`. Причем второй пакет будем устанавливать в режиме `--dev`, так как этот пакет нужен для разработки нашей библиотеки, но не нужен человеку, который установит наш пакет. И да, если используешь uv, то лучше использовать команду `uv fmt` вместо `black` для форматирования кода, но сейчас мы просто тестируем добавление пакета для разработки. Также устанавливаем библиотеку `pytest` для тестирования библиотеки:
+Для тестирования внедрения сторонних пакетов в нашу библиотеку установим два популярных пакета `numpy` и `isort`. Причем второй пакет будем устанавливать в режиме `--dev`, так как этот пакет нужен для разработки нашей библиотеки, но не нужен человеку, который установит наш пакет. Также устанавливаем библиотеку `pytest` для тестирования библиотеки и `ruff` для форматирования и проверки кода.
 
 ```python
 uv add numpy
-uv add --dev black
+uv add --dev isort
+uv add --dev ruff
 uv add --dev pytest
 ```
 
 Информация об установленных библиотеках будет располагаться в файлах:
 
 - `pyproject.toml`
-- `requirements.lock`
-- `requirements-dev.lock`
+- `uv.lock`
 
 ![Установленные библиотеки](img/install-packages.png)
 
@@ -127,7 +129,7 @@ _Рисунок 4 — Файл functions.py_
 from .functions import *
 ```
 
-Проверку нашего пакета будем делать через [pytest](https://docs.pytest.org/en/stable/) (он используется в uv по умолчанию). Именно для этого выше мы его устанавливали через `uv add pytest --dev`:
+Проверку нашего пакета будем делать через [pytest](https://docs.pytest.org/en/stable/) (он используется в uv по умолчанию). Именно для этого выше мы его устанавливали через `uv add --dev pytest`:
 
 Для тестов создадим папку `tests` с файлами тестов. Не забудьте, что название файла тестов должно начинаться с `test_`
 
@@ -161,64 +163,48 @@ _Рисунок 5 — Файл с тестами функций_
 ```toml
 [project]
 name = "harrix-test-package"
-version = "0.5"
+version = "0.7"
 description = "Test package"
-authors = [{ name = "Anton Sergienko", email = "anton.b.sergienko@gmail.com" }]
-dependencies = ["numpy>=2.1.1"]
 readme = "README.md"
-requires-python = ">= 3.8"
-license = {file = "LICENSE"}
+authors = [{ name = "Anton Sergienko", email = "anton.b.sergienko@gmail.com" }]
+requires-python = ">=3.13"
+dependencies = ["numpy>=2.2.1"]
+license = { file = "LICENSE.md" }
 
 [project.urls]
 Homepage = "https://github.com/Harrix/harrix-test-package"
+
+[project.scripts]
+harrix-test-package = "harrix_test_package:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv]
-managed = true
-dev-dependencies = ["black>=24.8.0", "pytest>=8.3.3"]
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/harrix_test_package"]
+[dependency-groups]
+dev = ["isort>=5.13.2", "pytest>=8.3.4", "ruff>=0.8.6"]
 ```
 
-У меня версия пакета равна `0.5`, так как этот пакет уже использовался для экспериментов по созданию пакета другими средствами Python. У вас же она будет равна скорее всего `0.1`, `0.0.1` или `1.0` — всё зависит от выбранной вами нумерации версий пакетов.
+У меня версия пакета равна `0.7`, так как этот пакет уже использовался для экспериментов по созданию пакета другими средствами Python. У вас же она будет равна скорее всего `0.1`, `0.0.1` или `1.0` — всё зависит от выбранной вами нумерации версий пакетов.
 
-Параметры `name`, `description`, `Homepage`, `authors` поменяйте под себя. Раздел `project.urls` добавил вручную, так что, если у вас нет страницы проекта, то можно удалить. Аналогично со строкой `license = {file = "LICENSE"}`.
+Параметры `name`, `description`, `Homepage`, `authors` поменяйте под себя. Раздел `project.urls` добавил вручную, так что, если у вас нет страницы проекта, то можно удалить. Аналогично со строкой `license = {file = "LICENSE.md"}`.
 
 ![Файл pyproject.toml](img/toml.png)
 
 _Рисунок 6 — Файл pyproject.toml_
 
-Создадим файл лицензии `LICENSE`, в котором располагается текст вашей лицензии. У меня это [MIT лицензия](https://en.wikipedia.org/wiki/MIT_License). Блок `[Year] [Your name]` поменяйте под себя:
+Создадим файл лицензии `LICENSE.md`, в котором располагается текст вашей лицензии. У меня это [MIT лицензия](https://en.wikipedia.org/wiki/MIT_License). Блок `[Year] [Your name]` поменяйте под себя:
 
 ```markdown
-MIT License
+# The MIT License
 
-Copyright (c) [Year] [Your name]
+Copyright © [Year] [Your name]
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ![Файл LICENSE](img/license.png)
