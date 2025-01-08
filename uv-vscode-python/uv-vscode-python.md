@@ -69,9 +69,9 @@ attribution:
 - `uv remove cowsay` — удаление библиотеки.
 - `pytest` — запускает тесты на базе `pytest` (после `uv add --dev pytest`).
 - `uv python install 3.13` + `uv python pin 3.13` + `uv sync` — переключает на другую версию Python.
-- `uv add --dev pyinstaller` + `pyinstaller -F src\test_uv\main.py` — генерирует EXE файл. TODO
-- `uv build --clean` — собирает библиотеку. TODO
-- `uv publish` — публикация библиотеки на PyPI. TODO
+- `pyinstaller -F hello.py` — генерирует EXE файл (после `uv add --dev pyinstaller`).
+- `uv build` — собирает библиотеку.
+- `uv publish --token <pypi-token>` — публикация библиотеки на PyPI.
 
 ## Ссылки
 
