@@ -108,8 +108,10 @@ import numpy as np
 def multiply_2(x):
     return x * 2
 
+
 def multiply_10(x):
     return x * 10
+
 
 def test_numpy():
     return np.arange(-2, 2, 0.5)
@@ -138,6 +140,7 @@ from .functions import *
 ```python
 import harrix_test_package as h
 
+
 def test_multiply_2():
     re = h.multiply_2(2)
     assert re == 4
@@ -146,6 +149,7 @@ def test_multiply_2():
 def test_multiply_10():
     re = h.multiply_10(2)
     assert re == 20
+
 
 def test_test_numpy():
     re = len(h.test_numpy())
@@ -183,11 +187,21 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = ["isort>=5.13.2", "pytest>=8.3.4", "ruff>=0.8.6"]
+
+[tool.ruff]
+line-length = 120
 ```
 
 У меня версия пакета равна `0.7`, так как этот пакет уже использовался для экспериментов по созданию пакета другими средствами Python. У вас же она будет равна скорее всего `0.1`, `0.0.1` или `1.0` — всё зависит от выбранной вами нумерации версий пакетов.
 
 Параметры `name`, `description`, `Homepage`, `authors` поменяйте под себя. Раздел `project.urls` добавил вручную, так что, если у вас нет страницы проекта, то можно удалить. Аналогично со строкой `license = {file = "LICENSE.md"}`.
+
+Для форматирования кода в 120 символов через ruff вставлены следующие настройки:
+
+```toml
+[tool.ruff]
+line-length = 120
+```
 
 ![Файл pyproject.toml](img/toml.png)
 
@@ -247,7 +261,7 @@ _Рисунок 8 — Файл README.md_
 Мы уже создали папку `tests` с файлом тестов, а также установили `pytest` (если не установили, то установите через `uv add --dev pytest`). Так что для тестирования пакета нужно только запустить команду в терминале:
 
 ```shell
-uv test
+pytest
 ```
 
 ![Результат тестирования пакета](img/test_02.png)
@@ -255,6 +269,10 @@ uv test
 _Рисунок 9 — Результат тестирования пакета_
 
 Устанавливать наш пакет в режиме разработчика, как в pip, не нужно.
+
+Если видите ошибку такого плана, то мне помогла простая перезагрузка компа:
+
+![alt text](img/error_pytest.png)
 
 ## Сборка пакета и публикация на TestPyPi
 
