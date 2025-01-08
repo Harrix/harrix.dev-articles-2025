@@ -274,19 +274,6 @@ _Рисунок 9 — Результат тестирования пакета_
 
 ![alt text](img/error_pytest.png)
 
-## Сборка пакета и публикация на TestPyPi
-
-Данный раздел был удален после написания, так как мой пакет использует `numpy`, а этого пакета нет на TestPyPi, что приводит к проблемам установки моего пакета.
-
-Однако, если вы захотите собрать пакет и отправить его на TestPyPi, то зарегистрируйтесь на [TestPyPi](https://test.pypi.org/account/register/). Также там нужно будет [настроить двуфакторную авторизацию](https://test.pypi.org/manage/account/two-factor/). Я для этого использовал Microsoft Authenticator.
-
-Соберите пакет для публикации и опубликуйте:
-
-```shell
-uv build
-uv publish --repository testpypi --repository-url https://test.pypi.org/legacy/
-```
-
 ## Сборка пакета и публикация на PyPi
 
 Зарегистрируйтесь на [PyPi](https://pypi.org/account/register/). Также там нужно будет [настроить двуфакторную авторизацию](https://pypi.org/manage/account/two-factor/). Я для этого использовал Microsoft Authenticator.
