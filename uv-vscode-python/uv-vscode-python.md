@@ -1,5 +1,5 @@
 ---
-date: 2025-01-07
+date: 2025-01-08
 categories: [it, programming]
 tags: [Python, VScode]
 download: https://github.com/Harrix/harrix.dev-articles-2025/raw/main/uv-vscode-python/files/test-uv.zip
