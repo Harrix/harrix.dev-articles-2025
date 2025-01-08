@@ -203,6 +203,8 @@ line-length = 120
 line-length = 120
 ```
 
+Также я для тестового примера оставил минимальную версию Python по умолчанию, и это последняя версия Python: `requires-python = ">=3.13"`, но возможно вы захотите свой пакет сделать более универсальным и понизите версию пакета.
+
 ![Файл pyproject.toml](img/toml.png)
 
 _Рисунок 6 — Файл pyproject.toml_
@@ -431,13 +433,12 @@ def test_test_numpy():
 def test_multiply_20():
     re = h.multiply_20(2)
     assert re == 40
-
 ```
 
 Теперь надо запустить тесты:
 
 ```shell
-uv test
+pytest
 ```
 
 Тесты успешно пройдены:
@@ -446,53 +447,48 @@ uv test
 
 _Рисунок 22 — Тестирование пакета_
 
-В файле `pyproject.toml` поменяем номер версии пакета на следующую, у меня это `0.6`:
+В файле `pyproject.toml` поменяем номер версии пакета на следующую, у меня это `0.8`:
 
 ```toml
 [project]
 name = "harrix-test-package"
-version = "0.6"
+version = "0.8"
 description = "Test package"
-authors = [{ name = "Anton Sergienko", email = "anton.b.sergienko@gmail.com" }]
-dependencies = ["numpy>=2.1.1"]
 readme = "README.md"
-requires-python = ">= 3.8"
-license = {file = "LICENSE"}
+authors = [{ name = "Anton Sergienko", email = "anton.b.sergienko@gmail.com" }]
+requires-python = ">=3.13"
+dependencies = ["numpy>=2.2.1"]
+license = { file = "LICENSE.md" }
 
 [project.urls]
 Homepage = "https://github.com/Harrix/harrix-test-package"
+
+[project.scripts]
+harrix-test-package = "harrix_test_package:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv]
-managed = true
-dev-dependencies = ["black>=24.8.0", "pytest>=8.3.3"]
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/harrix_test_package"]
-
+[dependency-groups]
+dev = ["isort>=5.13.2", "pytest>=8.3.4", "ruff>=0.8.6"]
 ```
 
-Собираем и публикуем пакет:
+Собираем и публикуем пакет. Токен, конечно, вставляете свой. И да, можно вызвать команду публикации пакета по другому, смотрите документацию.
 
 ```shell
-uv build --clean
-uv publish
+uv build
+uv publish --token pypi-Qwerty1234567890QwertyQwerty1234567890Qwerty1234567890Qwerty1234567890Qwerty1234567890Qwerty1234567890Qwerty1234567890Qwerty1234567890Qwerty1234567890Qwerty1234567890Qwerty12
 ```
 
-Если вы шифровали токен, то надо будет ввести при публикации пароль.
+![Публикация новой версии пакета](img/publish-new.png)
 
-Публикация нового проекта завершена.
+Если вы шифровали токен, то надо будет ввести при публикации пароль.
 
 В проектах, в котором использовался наш пакет обновляем его через команду:
 
 ```shell
-uv sync --update harrix-test-package
+uv sync --upgrade-package harrix-test-package
 ```
 
 ![Обновление пакета](img/update-package.png)
@@ -518,7 +514,7 @@ cd c:\projects\harrix-test-package
 
 Или вы просто копируете как-нибудь свой проект на другую машину (да хоть через флешку).
 
-Пишем команду для создания виртуального окружения с теми же самыми библиотеками, что были в проекте. Это прописано в файлах `requirements.lock` и `requirements-dev.lock`:
+Пишем команду для создания виртуального окружения с теми же самыми библиотеками, что были в проекте. Это прописано в файле `uv.lock`:
 
 ```shell
 uv sync
@@ -532,9 +528,9 @@ _Рисунок 43 — Выполнение команд в терминале_
 
 Теперь проект можете открыть в VSCode:
 
-![Проект открытый в VSCode](img/deploy_02.png)
+![Проект открытый в VSCode с запущенными тестами](img/deploy_02.png)
 
-_Рисунок 43 — Проект открытый в VSCode_
+_Рисунок 43 — Проект открытый в VSCode с запущенными тестами_
 
 Всё. Можете спокойно работать со своим проектом.
 
