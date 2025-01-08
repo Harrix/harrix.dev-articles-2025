@@ -37,8 +37,6 @@ attribution:
 
 Подробная инструкция по созданию собственного пакета Python через uv на примере Windows 11.
 
-Итак, в [uv](https://github.com/astral-sh/uv) появилось сообщение: «If you're getting started with uv, consider uv, the successor project from the same maintainers.» Так что вот только что перешел на uv, а теперь надо переходить на [uv](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/create-python-package-uv/create-python-package-uv.md) | [🡥](https://harrix.dev/ru/articles/2025/create-python-package-uv/).
-
 Пакет, созданный в рамках этой статьи:
 
 - <https://github.com/Harrix/harrix-test-package>
@@ -46,8 +44,7 @@ attribution:
 
 Официальная документация:
 
-- <https://uv.astral.sh>
-- <https://uv.astral.sh/guide/publish>
+- [uv](https://docs.astral.sh/uv/) — сайт инструмента.
 - <https://packaging.python.org/tutorials/packaging-projects>
 - <https://github.com/pypa/sampleproject>
 
