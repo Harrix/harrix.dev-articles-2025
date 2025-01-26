@@ -27,7 +27,7 @@ attribution:
     license-url: https://github.com/astral-sh/uv/blob/main/LICENSE-MIT
     permalink: https://docs.astral.sh/uv/assets/logo-letter.svg
     permalink-date: 2025-01-07
-    name: Hatch Logo
+    name: uv Logo
 ---
 
 # Создание пакетов в Python через uv
