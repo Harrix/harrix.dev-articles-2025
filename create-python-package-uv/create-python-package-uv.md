@@ -70,7 +70,7 @@ attribution:
 
 ## Подготовка
 
-Установите и настройте uv, например, по статье [Установка и работа с uv (Python) в VSCode](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [🡥](https://harrix.dev/ru/articles/2025/uv-vscode-python/).
+Установите и настройте uv, например, по статье [Установка и работа с uv (Python) в VSCode](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [↗️](https://harrix.dev/ru/articles/2025/uv-vscode-python/).
 
 ## Создание проекта
 
@@ -352,7 +352,7 @@ _Рисунок 16 — Папка dist_
 
 ## Использование пакета, опубликованного на PyPi
 
-Для проверки опубликованного пакета создаем новый Python проект с использованием uv (например, с именем `test`) со своим виртуальным окружением, куда установлю опубликованный пакет. Можно сделать [обычным способом](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [🡥](https://harrix.dev/ru/articles/2025/uv-vscode-python.md/), а можно через консоль с открытием проекта в VSCode. Привожу код для Windows через PowerShell:
+Для проверки опубликованного пакета создаем новый Python проект с использованием uv (например, с именем `test`) со своим виртуальным окружением, куда установлю опубликованный пакет. Можно сделать [обычным способом](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [↗️](https://harrix.dev/ru/articles/2025/uv-vscode-python.md/), а можно через консоль с открытием проекта в VSCode. Привожу код для Windows через PowerShell:
 
 ```shell
 cd C:\python-projects
@@ -527,7 +527,7 @@ _Рисунок 23 — Обновление пакета_
 
 У нас есть, например, на GitHub [исходники](https://github.com/Harrix/harrix-test-package) нашего пакета, которые мы хотим склонировать на другой компьютер, например, в папку `c:\projects` (для примера папку специально назвал по-другому, чтобы она отличалась от `c:\python-projects`).
 
-Считаем, что [Python](https://github.com/Harrix/harrix.dev-articles-2021/blob/main/install-python/install-python.md) | [🡥](https://harrix.dev/ru/articles/2021/install-python/), [Git](https://github.com/Harrix/harrix.dev-articles-2021/blob/main/install-git/install-git.md) | [🡥](https://harrix.dev/ru/articles/2021/install-git/), [uv](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [🡥](https://harrix.dev/ru/articles/2023/uv-vscode-python/) и VSCode у вас установлены на новой машине.
+Считаем, что [Python](https://github.com/Harrix/harrix.dev-articles-2021/blob/main/install-python/install-python.md) | [↗️](https://harrix.dev/ru/articles/2021/install-python/), [Git](https://github.com/Harrix/harrix.dev-articles-2021/blob/main/install-git/install-git.md) | [↗️](https://harrix.dev/ru/articles/2021/install-git/), [uv](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [↗️](https://harrix.dev/ru/articles/2023/uv-vscode-python/) и VSCode у вас установлены на новой машине.
 
 Cклонировать проект можно такой командой:
 
