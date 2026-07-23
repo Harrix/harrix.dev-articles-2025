@@ -143,7 +143,7 @@ def test_numpy():
 
 ![Файл `functions.py`](img/project_03.png)
 
-_Рисунок 4 — Файл functions.py_
+_Рисунок 4 — Файл `functions.py`_
 
 Обратите внимание, что внутри папки `src` располагается название пакета в том виде, в котором я буду его импортировать в других проектах. И в этом названии дефисы использовать нельзя по правилам синтаксиса Python. Поэтому папка называется `harrix_test_package` (без дефисов), а не `harrix-test-package`.
 
@@ -229,7 +229,7 @@ line-length = 120
 
 ![Файл `pyproject.toml`](img/toml.png)
 
-_Рисунок 6 — Файл pyproject.toml_
+_Рисунок 6 — Файл `pyproject.toml`_
 
 Создадим файл лицензии `LICENSE.md`, в котором располагается текст вашей лицензии. У меня это [MIT лицензия](https://en.wikipedia.org/wiki/MIT_License). Блок `[Year] [Your name]` поменяйте под себя:
 
@@ -278,7 +278,7 @@ print(h.multiply_2(2))
 
 ![Файл `README.md`](img/readme.png)
 
-_Рисунок 8 — Файл README.md_
+_Рисунок 8 — Файл `README.md`_
 
 ## Тестирование пакета
 
@@ -298,7 +298,7 @@ _Рисунок 9 — Результат тестирования пакета_
 
 ![Error](img/error_pytest.png)
 
-_Рисунок 10 — alt text_
+_Рисунок 10 — Error_
 
 ## Сборка пакета и публикация на PyPi
 
