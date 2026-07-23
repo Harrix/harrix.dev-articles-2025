@@ -465,7 +465,7 @@ _Рисунок 27 — Создание папки tests через правый
 
 В неё создайте файл, например, `test_hello.py`:
 
-![Созданный файл test_hello.py](img/test_03.png)
+![Созданный файл `test_hello.py`](img/test_03.png)
 
 _Рисунок 28 — Созданный файл test_hello.py_
 
@@ -621,7 +621,7 @@ uv python pin 3.11.9
 uv sync
 ```
 
-Посмотреть на последнюю версию Python, на которую вы хотите обновиться можно на сайтах [python.org](https://www.python.org/downloads/windows/) или [python-build-standalone](https://github.com/indygreg/python-build-standalone/releases).
+Посмотреть на последнюю версию Python, на которую вы хотите обновиться можно на сайтах [Python.org](https://www.python.org/downloads/windows/) или [python-build-standalone](https://github.com/indygreg/python-build-standalone/releases).
 
 ## Сборка EXE файла
 
