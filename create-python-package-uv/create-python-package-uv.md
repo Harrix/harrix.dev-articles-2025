@@ -141,7 +141,7 @@ def test_numpy():
 
 Для этого создаем файл `functions.py` (у вас он будет называться по другому) в в папке `src\harrix_test_package` и поместим вышеприведенный код:
 
-![Файл functions.py](img/project_03.png)
+![Файл `functions.py`](img/project_03.png)
 
 _Рисунок 4 — Файл functions.py_
 
@@ -227,7 +227,7 @@ line-length = 120
 
 Также я для тестового примера оставил минимальную версию Python по умолчанию, и это последняя версия Python: `requires-python = ">=3.13"`, но возможно вы захотите свой пакет сделать более универсальным и понизите версию пакета.
 
-![Файл pyproject.toml](img/toml.png)
+![Файл `pyproject.toml`](img/toml.png)
 
 _Рисунок 6 — Файл pyproject.toml_
 
@@ -276,7 +276,7 @@ print(h.multiply_2(2))
 ```
 ````
 
-![Файл README.md](img/readme.png)
+![Файл `README.md`](img/readme.png)
 
 _Рисунок 8 — Файл README.md_
 
@@ -296,7 +296,7 @@ _Рисунок 9 — Результат тестирования пакета_
 
 Если видите ошибку такого плана, то мне помогла простая перезагрузка компа:
 
-![alt text](img/error_pytest.png)
+![Error](img/error_pytest.png)
 
 _Рисунок 10 — alt text_
 
