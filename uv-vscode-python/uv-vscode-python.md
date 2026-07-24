@@ -150,7 +150,7 @@ _Рисунок 5 — Режим Auto Save_
 
 _Рисунок 6 — Команда установки для Windows_
 
-Открываем Windows Terminal, PowerShell или тот же VScode (там нужен терминал) и там вводим команду
+Открываем Windows Terminal, PowerShell или тот же VScode (там нужен терминал) и там вводим команду:
 
 ```shell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -583,7 +583,7 @@ _Рисунок 34 — Скачивание новой версии Python_
 
 _Рисунок 35 — Пониженная версия Python_
 
-Потом потом надо указать, что мы хотим переключиться на другую версию Python. Это команда приведет к изменению файла `.python-version`:
+Потом надо указать, что мы хотим переключиться на другую версию Python. Это команда приведет к изменению файла `.python-version`:
 
 ```shell
 uv python pin 3.11.11
