@@ -226,7 +226,7 @@ line-length = 120
 line-length = 120
 ```
 
-Также я для тестового примера оставил минимальную версию Python по умолчанию, и это последняя версия Python: `requires-python = ">=3.13"`, но возможно вы захотите свой пакет сделать более универсальным и понизите версию пакета.
+Также я для тестового примера оставил минимальную версию Python по умолчанию, и это последняя версия Python: `requires-python = ">=3.13"`, но возможно вы захотите свой пакет сделать более универсальным и понизите версию пакета:
 
 ![Файл `pyproject.toml`](img/toml.png)
 
@@ -530,7 +530,7 @@ _Рисунок 23 — Обновление пакета_
 
 Считаем, что [Python](https://github.com/Harrix/harrix.dev-articles-2021/blob/main/install-python/install-python.md) | [↗️](https://harrix.dev/ru/articles/2021/install-python/), [Git](https://github.com/Harrix/harrix.dev-articles-2021/blob/main/install-git/install-git.md) | [↗️](https://harrix.dev/ru/articles/2021/install-git/), [uv](https://github.com/Harrix/harrix.dev-articles-2025/blob/main/uv-vscode-python/uv-vscode-python.md) | [↗️](https://harrix.dev/ru/articles/2023/uv-vscode-python/) и VSCode у вас установлены на новой машине.
 
-Cклонировать проект можно такой командой:
+Склонировать проект можно такой командой:
 
 ```shell
 mkdir c:\projects
