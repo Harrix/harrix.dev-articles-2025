@@ -108,7 +108,7 @@ attribution:
 
 Python не обязателен, так как uv умеет сам устанавливать и управлять Python.
 
-Нужен VSCode. Если его нет, то смотрите статью [Установка Visual Studio Code (простая)](https://github.com/Harrix/harrix.dev-articles-2021/blob/main/install-vscode-simple/install-vscode-simple.md) | [↗️](https://harrix.dev/ru/articles/2021/install-vscode-simple/).
+Нужен VSCode. Если его нет, то смотрите статью [Установка Visual Studio Code (простая) и открытие Markdown](https://github.com/Harrix/harrix.dev-articles-2021/blob/main/install-vscode-simple/install-vscode-simple.md) | [↗️](https://harrix.dev/ru/articles/2021/install-vscode-simple/).
 
 Нужно расширение Python в VScode:
 
